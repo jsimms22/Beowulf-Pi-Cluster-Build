@@ -41,6 +41,7 @@ For this guide I used OpenMPI.
 -login with default user credentials
 
 -use ip -a to identify the IP
+
 ```
 For me my IPs were assigned:
 192.168.55.70 rpi0-main
@@ -50,6 +51,7 @@ For me my IPs were assigned:
 ```
 
 -modify /etc/hosts file
+
 ```
 $ sudo nano /etc/hosts
 ```
@@ -57,6 +59,7 @@ $ sudo nano /etc/hosts
 -add the IPs/Hostnames for each node to the existing information
 
 -verify changes were added (optional)
+
 ```
 $ sudo cat /etc/hosts
 ```
@@ -65,26 +68,31 @@ $ sudo cat /etc/hosts
 -Whichever option, it is strongly recommended to have the same username for all nodes
 
 -To add a new user, it will require sudo privelages
+
 ```
 $ sudo adduser mpiuser
 ```
 
 -Add new user to the sudo group
+
 ```
 $ sudo usermod -aG sudo mpiuser
 ```
 
 -Add or change the password for the new user
+
 ```
 $ sudo passwd mpiuser
 ```
 
 -Switch to the new user
+
 ```
 $ su - mpiuser
 ```
 
 Step 4: Install openssh server
+
 ```
 $ sudo apt install openssh-server
 $ sudo systemctl start openssh
@@ -93,22 +101,19 @@ $ sudo systemctl start openssh
 -You may need to change the default options for your ssh server service
 
 -options config file can be found here
+
 ``` 
 $ cat /etc/ssh/sshd_config
-```
+``` 
 
 -by default password and pubkey authentication are disallowed, and the listening port number is 22
 
 -notes: 
     -password auth will be required for initial key sharing
-
     -recommend disallowing password auth after pub key auth is set up
-
     -recommend changing your default ssh server listening port to something non-standard and non-conflicting (example: 32323)
-
     -any changes to this config file will require the ssh server service to be restarted, this can be done with systemctl
         $ sudo systemctl restart ssh
-
     -you can check the status of ssh with:
         $ sudo systemctl status ssh
 
@@ -123,10 +128,8 @@ $ cat /etc/ssh/sshd_config
 
 -Copy the current node's public key to the other nodes for authentication
     $ ssh-copy-id mpiuser@"node IP or hostname here"
-
         -Alternatively
             $ ssh-copy-id "node IP or hostname here"
-
         -ssh into desired user of targeted machine (repeat for every other node)
             $ eval 'ssh-agent'
             $ ssh-add ~/.ssh/key-name
