@@ -43,11 +43,8 @@ Use ip -a to identify the IP. For me my IPs were assigned:
 
 ```
 192.168.55.70 rpi0-main
-
 192.168.55.71 rpi1-node
-
 192.168.55.72 rpi2-node
-
 192.168.55.73 rpi3-node
 ```
 
@@ -145,6 +142,7 @@ Verify you can SSH into every node into the other nodes without needing a passwo
 
 Note:
 - It may be useful to generate keys for a client computer at this point, using the same process. Especially if you plan to remove password authentication.
+  
 ## Step 6a: Setting up the NFS Server (Control Node Only)
 
 There are other services that can be used besides NFS, basic idea is providing a shared folder over your network that every node can mount and have R+W access
@@ -187,6 +185,7 @@ Restart your nfs server service (do this anytime after you modify /etc/exports)
 ```
 $ sudo service restart nfs-kernel-server
 ```
+
 ## Step 6b: Setting up NFS Client (Worker Nodes Only)
 
 Install the required package
@@ -230,6 +229,7 @@ Note:
 ```
 $ sudo apt install build-essential
 ```
+
 ## Step 7: Install MPI
 
 Note:
@@ -264,7 +264,7 @@ If you are coding on a client device, and planning to only compile and run on yo
 $ scp -r /your/local/path/to/hello_mpi.cpp mpiuser@192.168.55.70:~/cloud-nfs/learning_mpi
 ```
 
-Here is an hello world with MPI example in C++ version, but based on the C implementation from: https://github.com/mpitutorial/mpitutorial/blob/gh-pages/tutorials/mpi-hello-world/code/mpi_hello_world.c
+Here is an hello world with MPI example in C++, but based on the C implementation from: https://github.com/mpitutorial/mpitutorial/blob/gh-pages/tutorials/mpi-hello-world/code/mpi_hello_world.c
 
 ```
 #include "mpi.h"
@@ -272,7 +272,7 @@ Here is an hello world with MPI example in C++ version, but based on the C imple
 
 int main (int argc, char** argv)
 {
-	// Initialize the MPI environment
+    // Initialize the MPI environment
     MPI_Init(NULL, NULL);
 
     // Get the number of processes
@@ -299,7 +299,7 @@ int main (int argc, char** argv)
 
 How to compile your program:
 ```
-$ mpic++ mpic++ hello_mpi.cpp -o hello_mpi++
+$ mpic++ hello_mpi.cpp -o hello_mpi++
 ```
 How to run your program:
 ```
@@ -365,15 +365,12 @@ $ nano host_file
 ```
 
 Add the nodes you wish to target via ips in here, for example:
-
 ```
 192.168.55.70
 192.168.55.71
 192.168.55.72
 192.168.55.73
 ```
-
-You can all and use this as a template for all other programs, or request less and have specific host_files per each program directory
 
 Now run your program again with the --hostname [filename] option added after your requested slots, this time I am going to request the max number for my whole cluster.
 ```
