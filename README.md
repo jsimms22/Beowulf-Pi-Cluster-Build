@@ -41,7 +41,7 @@ Insert flashed the SD Cards and supply power to boot up the Nodes
 
 Login with default user credentials.
 
-Use ip -a to identify the IP. For me my IPs were assigned:
+Use ip a to identify the IP. For me my IPs were assigned:
 
 ```
 192.168.55.70 rpi0-main
