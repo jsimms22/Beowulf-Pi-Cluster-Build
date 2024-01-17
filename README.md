@@ -242,7 +242,7 @@ Easier method, with less control over the installation, simply run this on each 
 $ sudo apt install openmp-bin
 ```
 
--Verify the locations of the libraries, header files, and other useful things for the linker to know with the MPI compile script of your chosen language (see OpenMPI doc for all)
+Verify the locations of the libraries, header files, and other useful things for the linker to know with the MPI compile script of your chosen language (see OpenMPI doc for all)
 ```
 $ mpic++ -showme
 g++ -I/usr/lib/aarch64-linux-gnu/openmpi/include -I/usr/lib/aarch64-linux-gnu/openmpi/include/openmpi -L/usr/lib/aarch64-linux-gnu/openmpi/lib -lmpi_cxx -lmpi
