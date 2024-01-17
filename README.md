@@ -12,7 +12,9 @@ For this guide I used OpenMPI.
 ## Cluster Specifications Used for this Guide:
 -4 x Raspberry Pi 4s (quad-core, 2Gb RAM)
     with POE+ Hat, 64Gb SD Card
+    
 -POE+ capable networking switch (or 4 x dedicated power supplies)
+
 -Ubuntu 22.04 LTS
 
 ## Step 1: Flash SD Cards
@@ -39,44 +41,61 @@ For this guide I used OpenMPI.
 -login with default user credentials
 
 -use ip -a to identify the IP
-
-    For me my IPs were assigned:
-    192.168.55.70 rpi0-main
-    192.168.55.71 rpi1-node
-    192.168.55.72 rpi2-node
-    192.168.55.73 rpi3-node
+```
+For me my IPs were assigned:
+192.168.55.70 rpi0-main
+192.168.55.71 rpi1-node
+192.168.55.72 rpi2-node
+192.168.55.73 rpi3-node
+```
 
 -modify /etc/hosts file
-    $ sudo nano /etc/hosts
+```
+$ sudo nano /etc/hosts
+```
 
 -add the IPs/Hostnames for each node to the existing information
 
 -verify changes were added (optional)
-    $ sudo cat /etc/hosts
+```
+$ sudo cat /etc/hosts
+```
 
 ## Step 3 (optional): Add new user or use default user if for personal use
 -Whichever option, it is strongly recommended to have the same username for all nodes
 
 -To add a new user, it will require sudo privelages
-    $ sudo adduser mpiuser
+```
+$ sudo adduser mpiuser
+```
 
 -Add new user to the sudo group
-    $ sudo usermod -aG sudo mpiuser
+```
+$ sudo usermod -aG sudo mpiuser
+```
 
 -Add or change the password for the new user
-    $ sudo passwd mpiuser
+```
+$ sudo passwd mpiuser
+```
 
 -Switch to the new user
-    $ su - mpiuser
+```
+$ su - mpiuser
+```
 
 Step 4: Install openssh server
-    $ sudo apt install openssh-server
-    $ sudo systemctl restart openssh
+```
+$ sudo apt install openssh-server
+$ sudo systemctl start openssh
+```
 
 -You may need to change the default options for your ssh server service
 
--options config file can be found here 
-    $ cat /etc/ssh/sshd_config
+-options config file can be found here
+``` 
+$ cat /etc/ssh/sshd_config
+```
 
 -by default password and pubkey authentication are disallowed, and the listening port number is 22
 
