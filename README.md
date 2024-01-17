@@ -5,6 +5,7 @@ Decide on a implementation of the MPI standard: MPICH or OpenMPI
 
 Guide on manual install (OpenMPI): 
 https://docs.open-mpi.org/en/v5.0.x/installing-open-mpi/quickstart.html
+
 Guide on manual install (MPICH): 
 https://www.mpich.org/static/downloads/4.1.2/mpich-4.1.2-installguide.pdf
 
