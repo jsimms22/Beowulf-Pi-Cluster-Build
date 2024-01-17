@@ -6,10 +6,10 @@
         $ mpic++ my_file.cpp -o my_exe
 
     (on remote server) run exe
-        $ mpirun -np <desired ## of nodes for job> my_exe
+        $ mpirun -np <desired ##> --hostfile my_host_file my_exe
 
     example:
-        mpirun -np 15 --hostfile host_file hello_mpi++
+        mpirun -np 15 --hostfile my_host_file hello_mpi++
 
     console output:
         Hello world from processor rpi0-main, rank 0 out of 15 processors
