@@ -12,12 +12,12 @@ https://www.mpich.org/static/downloads/4.1.2/mpich-4.1.2-installguide.pdf
 Either is fine, the most recent MPICH is probably closer to the most current MPI Standard. OpenMPI is a more generalized implementation approach. Both use the same naming convention for the header files, and Bash scripts for compiling and running MPI apps.
 
 For my guide I used OpenMPI.
-## Cluster Specifications Used for this Guide:
+## Cluster Specifications Used for This Guide:
 
 - 4 x Raspberry Pi 4s (quad-core, 2Gb RAM) with POE+ Hat, 64Gb SD Card
 - POE+ capable networking switch (or 4 x dedicated power supplies)
 - Ubuntu 22.04 LTS
-## Step 1: Flash SD Cards
+## Step 1: Flash the SD Cards
 
 Download the raspbian image loader from: https://www.raspberrypi.com/software/
 
@@ -34,7 +34,8 @@ Naming convention I chose:
 ### Notes
 - This will require a dedicated keyboard + monitor initially, at least until an SSH server service is installed and configured for each Node.
 - It is strongly recommended to ensure your DNS assigns static IPs to all of your Nodes. Dynamic IPs may result in services being unable to connect to each other later on.
-## Step 2: Acquire IP info and modify hosts file
+  
+## Step 2: Acquire IP Info and Modify /etc/hosts
 
 Insert flashed the SD Cards and supply power to boot up the Nodes
 
