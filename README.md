@@ -232,7 +232,7 @@ Note:
 $ sudo apt install build-essential
 ```
 
-## Step 7: Install MPI
+## Step 8: Install MPI
 
 Note:
 - You must install the version with the same configuration on each node. 
@@ -253,7 +253,7 @@ g++ -I/usr/lib/aarch64-linux-gnu/openmpi/include -I/usr/lib/aarch64-linux-gnu/op
 It is strongly recommended to let the provided MPI scripts build and run MPI programs. They will handle the linking for you so you do not need to worry about. Otherwise, you now have the information to do it manually if you want.
 
 By default, GNU compilers are used, but this can be changed prior to installation (if manually installing). Please refer to the OpenMPI or MPICH documentation on how this works. 
-## Step 7: Create a MPI version of hello world
+## Step 9: Create a MPI version of hello world
 
 If coding directly on the control node:
 ```
